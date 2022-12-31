@@ -15,7 +15,7 @@ import { providers } from 'ethers'
 import { getAddress, hexValue } from 'ethers/lib/utils.js'
 
 import { Connector } from './base'
-import { getInjectedName } from './utils/getInjectedName'
+import { getInjectedName, sleep } from './utils/getInjectedName'
 
 export type InjectedConnectorOptions = {
   /** Name of connector */
@@ -204,6 +204,9 @@ export class InjectedConnector extends Connector<
         method: 'wallet_switchEthereumChain',
         params: [{ chainId: id }],
       })
+      console.log('sleep start')
+      await sleep(1000)
+      console.log('sleep ends')
       return (
         this.chains.find((x) => x.id === chainId) ?? {
           id: chainId,

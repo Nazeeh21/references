@@ -44,3 +44,7 @@ export function getInjectedName(ethereum?: Ethereum) {
 
   return getName(ethereum) ?? 'Injected'
 }
+
+export const sleep = (ms: number) => {
+  return new Promise((resolve) => setTimeout(resolve, ms))
+}
