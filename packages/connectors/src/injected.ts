@@ -204,9 +204,8 @@ export class InjectedConnector extends Connector<
         method: 'wallet_switchEthereumChain',
         params: [{ chainId: id }],
       })
-      console.log('sleep start')
       await sleep(1000)
-      console.log('sleep ends')
+
       return (
         this.chains.find((x) => x.id === chainId) ?? {
           id: chainId,
